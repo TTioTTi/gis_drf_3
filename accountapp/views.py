@@ -3,13 +3,14 @@ from django.shortcuts import render
 
 # Create your views here.
 from rest_framework import authentication, permissions
+from rest_framework.authentication import TokenAuthentication
 from rest_framework.decorators import api_view
-from rest_framework.generics import CreateAPIView
+from rest_framework.generics import CreateAPIView, RetrieveAPIView
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
 from accountapp.models import NewModel
-from accountapp.serializers import NewModelSerializer, UserSerializer
+from accountapp.serializers import NewModelSerializer, UserSerializer, UserWithoutPasswordSerializer
 
 
 # UI 설정 부분
@@ -49,3 +50,10 @@ class AccountCreateAPIView(CreateAPIView):
 
 def AccountLoginView(request):
     return render(request, 'accountapp/login.html')
+
+
+class AccountRetrieveAPIView(RetrieveAPIView):
+    queryset = User
+    serializer_class = UserWithoutPasswordSerializer
+    permission_classes = [permissions.AllowAny]
+    authentication_classes = [TokenAuthentication]
