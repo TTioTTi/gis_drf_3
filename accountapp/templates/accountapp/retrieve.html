@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+    <div>
+        <h1 id="username"></h1>
+        <p id="date_joined"></p>
+    </div>
+
+    <div></div>
+
+    <script src="{% static 'js/retrieve.js' %}"></script>
+    <script> initialize("{{ view.kwargs.pk }}"); </script>
+
+{% endblock %}
