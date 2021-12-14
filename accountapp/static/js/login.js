@@ -1,3 +1,4 @@
+
 function setCookie(name, value, options = {}) {
 
   options = {
@@ -25,26 +26,25 @@ function setCookie(name, value, options = {}) {
 
 
 function send_input() {
-    <!-- axios github - Performing a POST request-->
     axios.post('/accounts/login/', {
         username: document.getElementById('username').value,
         password: document.getElementById('password').value,
-      })
+    })
 
-      .then(function (response) {
-        // 성공
-        console.log(response);
+        .then(function (response) {
+            console.log(response);
 
-        setCookie('drf_token', 'Token' + response.data['token']);
+            // Token 수령 후 쿠키 생성
+            setCookie('drf_token', 'Token ' + response.data['token']);
 
-        window.location.href = '/accounts/hello_world_template/';
-      })
+            // success_url 재연결
+            window.location.href = '/accounts/hello_world_template/';
+        })
 
-      .catch(function (error) {
-        // 실패
-        console.log(error);
+        .catch(function (error) {
+            console.log(error);
 
-        document.getElementById('alert_box').innerHTML
-            = "<div class='btn btn-danger rounded-pill px-5'>로그인이 실패했습니다.</div>";
-      });
+            document.getElementById('alert_box').innerHTML
+                = "<div class='btn btn-danger rounded-pill px-5'>로그인이 실패했습니다</div>";
+        });
 }

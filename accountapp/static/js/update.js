@@ -1,3 +1,4 @@
+
 function initialize(pk) {
     axios.get('/accounts/retrieve/' + pk )
 
@@ -7,7 +8,6 @@ function initialize(pk) {
 
             document.getElementById('username').value = response.data['username'];
             document.getElementById('email').value = response.data['email'];
-
         })
 
         .catch(function (error) {
@@ -19,6 +19,7 @@ function initialize(pk) {
             // always executed
         });
 }
+
 
 function update_account(pk) {
     axios({
@@ -54,7 +55,6 @@ function update_account(pk) {
                 document.getElementById('alert_box').innerHTML
                     = "<div class='btn btn-danger rounded-pill px-5'>업데이트에 실패했습니다.</div>"
             }
-
         })
 
         .then(function () {

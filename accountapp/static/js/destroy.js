@@ -1,3 +1,4 @@
+
 function delete_account(pk) {
     axios({
         method: 'delete',
@@ -28,7 +29,6 @@ function delete_account(pk) {
                 document.getElementById('alert_box').innerHTML
                     = "<div class='btn btn-danger rounded-pill px-5'>탈퇴에 실패했습니다.</div>"
             }
-
         })
 
         .then(function () {
