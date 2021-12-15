@@ -14,12 +14,13 @@ function send_input() {
             Authorization: decodeURIComponent(getCookie('drf_token'))
         }
     })
+
         .then(function (response) {
             console.log(response);
 
-            document.getElementById('alert_box').innerHTML
-                = "<div class='btn btn-primary rounded-pill px-5'>프로필 생성에 성공했습니다</div>"
+            window.location.href = '/accounts/retrieve_template/' + response.data['owner']['id'];
         })
+
         .catch(function (error) {
             console.log(error);
 
