@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+    <div class="width: 400px; margin: auto;">
+        <div class="my-5">
+            <h1 id="title"></h1>
+            <h4 id="created_at"></h4>
+            <img id="image" src=""
+                 style="border-radius: 2rem; width: 100%;" alt="">
+        </div>
+    </div>
+
+    <div id="owner_section"></div>
+
+    <div id="content"></div>
+
+    <script src="{% static 'articleapp/js/retrieve.js' %}"></script>
+    <script> initialize("{{ view.kwargs.pk }}"); </script>
+
+{% endblock %}
