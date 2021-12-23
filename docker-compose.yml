@@ -19,12 +19,12 @@ services:
 
 
   django:
-    image: gis_drf_2:1.0
+    image: gis_drf_3:1.0
     networks:
       - gis_network
     volumes:
-      - gis_static:/home/gis_drf_2/staticfiles/
-      - gis_media:/home/gis_drf_2/media/
+      - gis_static:/home/gis_drf_3/staticfiles/
+      - gis_media:/home/gis_drf_3/media/
     secrets:
       - DJANGO_SECRET_KEY
       - MARIADB_USER
